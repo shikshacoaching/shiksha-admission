@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Portal Gateway</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #059669;
+            --bg-color: #f8fafc;
+            --text-color: #1e293b;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 3rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            max-width: 500px;
+            width: 90%;
+        }
+
+        .logo {
+            width: 120px;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 0.75rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            display: block;
+        }
+
+        .btn-admission {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-admission:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .btn-verification {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .btn-verification:hover {
+            background-color: #047857;
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            margin-top: 2rem;
+            font-size: 0.875rem;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Your Logo -->
+    <img src="https://iili.io/qkieRf9.png" alt="Logo" class="logo">
+    
+    <h1>Digital Services Portal</h1>
+
+    <div class="button-group">
+        <!-- Admission Link -->
+        <a href="https://script.google.com/a/~/macros/s/AKfycbyZeg9sALo7jPOKlxyIyqCfD8ar60PZ9uxATToHdh15oKJpKY77RJ7jr4nvJnK7jNiOsw/exec" 
+           target="_blank" class="btn btn-admission">
+           Go to Admission Portal
+        </a>
+
+        <!-- Verification Link -->
+        <a href="https://script.google.com/a/~/macros/s/AKfycbwAu0p3Xeezh-sZsvpljcxXyQpd9Dxsrit39MZ7DN7iRYxBwPiUPkHQdqvdUHmMSgAy/exec" 
+           target="_blank" class="btn btn-verification">
+           Go to Verification Portal
+        </a>
+    </div>
+
+    <div class="footer">
+        &copy; 2024 Your Institution Name
+    </div>
+</div>
+
+</body>
+</html>
