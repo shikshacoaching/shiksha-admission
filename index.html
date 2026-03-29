@@ -3,119 +3,215 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>University Portal Gateway</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Shiksha - Student Portal</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #2563eb;
-            --secondary-color: #059669;
-            --bg-color: #f8fafc;
-            --text-color: #1e293b;
+            --bg-color: #eef4ff;
+            --card-bg: #ffffff;
+            --primary-dark: #00004d;
+            --text-main: #0a1931;
+            --text-muted: #555;
+            --input-border: #ddd;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--bg-color);
-            color: var(--text-color);
             margin: 0;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            height: 100vh;
+            justify-content: center;
+            min-height: 100vh;
         }
 
-        .container {
+        .header-section {
             text-align: center;
-            background: white;
-            padding: 3rem;
-            border-radius: 1.5rem;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-            max-width: 500px;
-            width: 90%;
+            margin-bottom: 20px;
         }
 
         .logo {
             width: 120px;
-            margin-bottom: 1.5rem;
+            height: 120px;
+            background: white;
+            border-radius: 50%;
+            padding: 5px;
+            object-fit: contain;
         }
 
-        h1 {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
+        .brand-name {
+            font-size: 28px;
+            color: var(--primary-dark);
+            font-weight: bold;
+            margin: 10px 0 5px 0;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            font-size: 12px;
+            color: var(--text-main);
             font-weight: 600;
+            text-transform: uppercase;
         }
 
-        .button-group {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
+        .login-card {
+            background: var(--card-bg);
+            width: 90%;
+            max-width: 380px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            position: relative;
         }
 
-        .btn {
-            padding: 1rem 1.5rem;
-            border: none;
-            border-radius: 0.75rem;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
+        .admin-access {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            text-align: center;
             text-decoration: none;
-            transition: all 0.2s ease;
-            display: block;
+            color: var(--text-main);
+            transition: 0.3s;
         }
 
-        .btn-admission {
-            background-color: var(--primary-color);
+        .admin-access i { font-size: 24px; }
+        .admin-access span { display: block; font-size: 10px; font-weight: bold; margin-top: 4px; }
+        .admin-access:hover { color: #555; }
+
+        .login-title {
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 40px;
+            margin-bottom: 30px;
+            color: #000;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .input-group i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 15px 15px 15px 45px;
+            border: 1px solid var(--input-border);
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .login-btn {
+            width: 100%;
+            background-color: var(--primary-dark);
             color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
         }
 
-        .btn-admission:hover {
-            background-color: #1d4ed8;
-            transform: translateY(-2px);
-        }
-
-        .btn-verification {
-            background-color: var(--secondary-color);
-            color: white;
-        }
-
-        .btn-verification:hover {
-            background-color: #047857;
-            transform: translateY(-2px);
-        }
+        .login-btn:hover { background-color: #000033; }
 
         .footer {
-            margin-top: 2rem;
-            font-size: 0.875rem;
-            color: #64748b;
+            margin-top: 50px;
+            font-size: 12px;
+            color: #777;
         }
+
+        /* Loading Spinner */
+        #loader { display: none; margin-top: 10px; color: var(--primary-dark); }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <!-- Your Logo -->
-    <img src="https://iili.io/qkieRf9.png" alt="Logo" class="logo">
-    
-    <h1>Digital Services Portal</h1>
+    <div class="header-section">
+        <img src="https://iili.io/qkieRf9.png" alt="Shiksha Logo" class="logo">
+        <div class="brand-name">Shiksha</div>
+        <div class="subtitle">(A CAREER INSTITUTE OF ARTS)</div>
+    </div>
 
-    <div class="button-group">
-        <!-- Admission Link -->
-        <a href="https://script.google.com/a/~/macros/s/AKfycbyZeg9sALo7jPOKlxyIyqCfD8ar60PZ9uxATToHdh15oKJpKY77RJ7jr4nvJnK7jNiOsw/exec" 
-           target="_blank" class="btn btn-admission">
-           Go to Admission Portal
+    <div class="login-card">
+        <!-- LINK TO VERIFICATION PORTAL -->
+        <a href="https://script.google.com/a/~/macros/s/AKfycbwAu0p3Xeezh-sZsvpljcxXyQpd9Dxsrit39MZ7DN7iRYxBwPiUPkHQdqvdUHmMSgAy/exec" class="admin-access">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Admin Access</span>
         </a>
 
-        <!-- Verification Link -->
-        <a href="https://script.google.com/a/~/macros/s/AKfycbwAu0p3Xeezh-sZsvpljcxXyQpd9Dxsrit39MZ7DN7iRYxBwPiUPkHQdqvdUHmMSgAy/exec" 
-           target="_blank" class="btn btn-verification">
-           Go to Verification Portal
-        </a>
+        <div class="login-title">STUDENT LOGIN</div>
+
+        <form id="loginForm">
+            <div class="input-group">
+                <i class="fa-regular fa-user"></i>
+                <input type="text" id="studentId" placeholder="Enter your Student ID" required>
+            </div>
+
+            <div class="input-group">
+                <i class="fa-regular fa-calendar-days"></i>
+                <input type="text" id="dob" placeholder="Date of Birth (DD/MM/YYYY)" required>
+            </div>
+
+            <button type="submit" class="login-btn" id="submitBtn">LOGIN</button>
+            <center><div id="loader"><i class="fas fa-spinner fa-spin"></i> Processing...</div></center>
+        </form>
     </div>
 
     <div class="footer">
-        &copy; 2024 Your Institution Name
+        © Copyright 2026 Shiksha. All rights reserved.
     </div>
-</div>
 
+    <script>
+        const form = document.getElementById('loginForm');
+        const loader = document.getElementById('loader');
+        const btn = document.getElementById('submitBtn');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            btn.style.display = 'none';
+            loader.style.display = 'block';
+
+            // Replace with your ADMISSION App Script URL
+            const scriptURL = 'https://script.google.com/a/~/macros/s/AKfycbyZeg9sALo7jPOKlxyIyqCfD8ar60PZ9uxATToHdh15oKJpKY77RJ7jr4nvJnK7jNiOsw/exec';
+
+            const data = {
+                studentId: document.getElementById('studentId').value,
+                dob: document.getElementById('dob').value
+            };
+
+            // Sending data to Google Script without leaving the page
+            fetch(scriptURL, {
+                method: 'POST',
+                mode: 'no-cors', // Important for Google Script
+                cache: 'no-cache',
+                body: JSON.stringify(data)
+            })
+            .then(() => {
+                alert("Request Sent Successfully!");
+                loader.style.display = 'none';
+                btn.style.display = 'block';
+                form.reset();
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                alert("Error connecting to server.");
+                loader.style.display = 'none';
+                btn.style.display = 'block';
+            });
+        });
+    </script>
 </body>
 </html>
